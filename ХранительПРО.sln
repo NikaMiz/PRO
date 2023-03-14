@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{2C8A2534-08CF-41DC-9C4B-8AE1F704B831}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BA3391BE-CDC0-453D-B96A-424B465EBDBE}"
-	ProjectSection(SolutionItems) = preProject
-		ХранительПРО.Aplication\DTO\RegistrationDTO.cs = ХранительПРО.Aplication\DTO\RegistrationDTO.cs
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ХранительПРО.API", "ХранительПРО.API\ХранительПРО.API.csproj", "{1505D0D8-F0C0-4FB6-BFB9-C1482426FC51}"
 EndProject
@@ -16,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CA1FDB44-A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ХранительПРО.Aplication", "ХранительПРО.Aplication\ХранительПРО.Aplication.csproj", "{FB761207-2F08-41B5-9DF9-0B23E6D8ABA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ХранительПРО.Domain", "ХранительПРО.Domain\ХранительПРО.Domain.csproj", "{605AEDBD-36DD-4AEA-91AB-59D5D745F662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ХранительПРО.Domain", "ХранительПРО.Domain\ХранительПРО.Domain.csproj", "{605AEDBD-36DD-4AEA-91AB-59D5D745F662}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastaction", "Infrastaction", "{9B272C84-00DF-4A8D-9BAC-2538FE55E5F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +44,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{2C8A2534-08CF-41DC-9C4B-8AE1F704B831} = {9B272C84-00DF-4A8D-9BAC-2538FE55E5F7}
 		{1505D0D8-F0C0-4FB6-BFB9-C1482426FC51} = {BA3391BE-CDC0-453D-B96A-424B465EBDBE}
 		{FB761207-2F08-41B5-9DF9-0B23E6D8ABA8} = {CA1FDB44-AB40-43B0-832A-3B4584058D86}
 		{605AEDBD-36DD-4AEA-91AB-59D5D745F662} = {CA1FDB44-AB40-43B0-832A-3B4584058D86}

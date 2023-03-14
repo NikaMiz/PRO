@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
+using System.Text;
 using ХранительПРО.Aplication.DTO;
 using ХранительПРО.Domain;
 
@@ -40,7 +42,7 @@ namespace ХранительПРО.API.Controllers
                 return BadRequest("User is exist");
             }
 
-            user = new User() { Login = login, Password = registrationDTO.Password };
+            user = new User() { Login = login, Password = Encode(registrationDTO.Password) };
 
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
@@ -62,13 +64,22 @@ namespace ХранительПРО.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPersonalVisiting(VisitingDTO visitingDTO)
         {
-
+            return Ok();
         }
 
         [HttpGet]
         public async Task<IActionResult> GetGroupVisiting(VisitingDTO visitingDTO)
         {
+            return Ok();
+        }
 
+        public string Encode(string original)
+        {
+            var md5 = MD5.Create();
+            var originalBytes = Encoding.Default.GetBytes(original);
+            var encodedBytes = md5.ComputeHash(originalBytes);
+
+            return BitConverter.ToString(encodedBytes);
         }
 
     }
