@@ -12,11 +12,13 @@ namespace ХранительПРО.Domain
         public string Name { get; set; } = null!;
         public string SurName { get; set; } = null!;
         public string? MiddleName { get; set; }
+        public string Telephone { get; set; }
         public string Email { get; set; } = null!;
         public DateTime BirthDay { get; set; }
         public string Seria { get; set; } = null!;
         public string Number { get; set; } = null!;
         public User User { get; set; } = null!;
-        public InfoGroup Group { get; set; } = null!;       
+        public InfoGroup Group { get; set; } = null!;
+        public Status Status { get; set; }
     }
 }

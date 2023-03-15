@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
@@ -11,9 +12,10 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(mainContext))]
-    partial class mainContextModelSnapshot : ModelSnapshot
+    [Migration("20230314072457_AddEmployee")]
+    partial class AddEmployee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,14 +93,7 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SurName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telephone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -111,8 +106,6 @@ namespace Persistence.Migrations
 
                     b.HasIndex("Id")
                         .IsUnique();
-
-                    b.HasIndex("StatusId");
 
                     b.HasIndex("UserId");
 
@@ -154,9 +147,6 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("BirthDay")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -179,14 +169,7 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SurName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telephone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -199,8 +182,6 @@ namespace Persistence.Migrations
 
                     b.HasIndex("Id")
                         .IsUnique();
-
-                    b.HasIndex("StatusId");
 
                     b.HasIndex("UserId");
 
@@ -216,6 +197,7 @@ namespace Persistence.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Message")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -259,12 +241,6 @@ namespace Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ХранительПРО.Domain.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ХранительПРО.Domain.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -272,8 +248,6 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Group");
-
-                    b.Navigation("Status");
 
                     b.Navigation("User");
                 });
@@ -297,12 +271,6 @@ namespace Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ХранительПРО.Domain.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ХранительПРО.Domain.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -310,8 +278,6 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Employee");
-
-                    b.Navigation("Status");
 
                     b.Navigation("User");
                 });

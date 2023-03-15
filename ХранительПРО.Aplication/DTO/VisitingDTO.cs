@@ -11,6 +11,7 @@ namespace ХранительПРО.Aplication.DTO
     {
         public string Division { get; set; }
         public DateTime CreateDate { get; set; }
-        public Status Status { get; set; }
+        public int StatusId { get; set; }
+        public string Login { get; set; }
     }
 }
